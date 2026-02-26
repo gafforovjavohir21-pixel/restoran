@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Menyu - LazzatRestoran{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold" style="color:var(--dark);">🍽️ Bizning Menyu</h2>
+        <p class="text-muted">An'anaviy o'zbek taomlari va zamonaviy taomlar</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="text-center mb-4">
+        {% for cat in categories %}
+        <a href="{{ url_for('menu_page', category=cat) }}"
+           class="btn me-2 mb-2 {% if active == cat %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+            {{ cat }}
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="row g-4">
+        {% for item in items %}
+        <div class="col-md-4 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center p-4">
+                    <div style="font-size:4.5rem;">{{ item.emoji }}</div>
+                    <span class="badge-cat mt-2 d-inline-block">{{ item.category }}</span>
+                    <h5 class="fw-bold mt-3">{{ item.name }}</h5>
+                    <p class="text-muted small">{{ item.desc }}</p>
+                    <p class="price-tag my-2">{{ "{:,}".format(item.price) }} so'm</p>
+                    <a href="{{ url_for('order') }}" class="btn btn-primary btn-sm w-100 mb-2">🛒 Buyurtma</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12 text-center py-5">
+            <div style="font-size:4rem;">😔</div>
+            <h4>Bu kategoriyada taom topilmadi</h4>
+            <a href="{{ url_for('menu_page') }}" class="btn btn-primary mt-3">Barchasini Ko'rish</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

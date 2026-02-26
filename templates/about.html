@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Biz Haqimizda - LazzatRestoran{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h1 class="fw-bold mb-3">Bizning Hikoyamiz</h1>
+            <p class="lead text-muted">LazzatRestoran 2015-yildan beri Toshkentda an'anaviy o'zbek taomlari bilan mijozlarni xursand qilib kelmoqda.</p>
+            <p class="text-muted">Bizning oshpazlar har bir taomni sevgi va hurmat bilan tayyorlaydi. Faqat yangi va tabiiy ingredientlar ishlatamiz.</p>
+            <a href="{{ url_for('order') }}" class="btn btn-primary btn-lg mt-3">🍽️ Hozir Buyurtma Bering</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <div style="font-size:9rem;">👨‍🍳</div>
+        </div>
+    </div>
+
+    <!-- Team -->
+    <h2 class="fw-bold text-center mb-4">Bizning Jamoa</h2>
+    <div class="row g-4 mb-5">
+        {% for m in [("👨‍🍳","Akbar Mirzayev","Bosh Oshpaz","20 yillik tajriba"),("👩‍🍳","Dilnoza Karimova","Sous-oshpaz","Milliy taomlar ustasi"),("🧑‍💼","Sardor Toshmatov","Menejer","Mijozlar xizmati"),("👩‍💻","Feruza Yusupova","Marketing","Raqamli marketing")] %}
+        <div class="col-md-3">
+            <div class="card text-center p-4">
+                <div style="font-size:4rem;">{{ m[0] }}</div>
+                <h5 class="fw-bold mt-3">{{ m[1] }}</h5>
+                <p class="text-danger fw-semibold mb-1">{{ m[2] }}</p>
+                <p class="text-muted small">{{ m[3] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Values -->
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card p-4" style="border-left:4px solid var(--primary);">
+                <h5 class="fw-bold">🌿 Yangi Ingredientlar</h5>
+                <p class="text-muted mb-0">Har kuni bozordan yangi sabzavot va go'sht sotib olamiz</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4" style="border-left:4px solid var(--accent);">
+                <h5 class="fw-bold">🏆 Sifat Kafolati</h5>
+                <p class="text-muted mb-0">Har bir taom maxsus nazorat ostida tayyorlanadi</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-4" style="border-left:4px solid var(--primary);">
+                <h5 class="fw-bold">❤️ Mehribonlik</h5>
+                <p class="text-muted mb-0">Har bir mijozga oila a'zosidek munosabat</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

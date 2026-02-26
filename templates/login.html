@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Kirish - LazzatRestoran{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card p-5">
+                <div class="text-center mb-4">
+                    <div style="font-size:3.5rem;">🍽️</div>
+                    <h3 class="fw-bold mt-2">Tizimga Kirish</h3>
+                    <p class="text-muted">Hisobingizga kiring</p>
+                </div>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Foydalanuvchi nomi</label>
+                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Parol</label>
+                        <input type="password" name="password" class="form-control form-control-lg" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">Kirish →</button>
+                </form>
+                <hr class="my-4">
+                <p class="text-center text-muted mb-0">
+                    Hisobingiz yo'qmi?
+                    <a href="{{ url_for('register') }}" style="color:var(--primary);font-weight:600;">Ro'yxatdan o'ting</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

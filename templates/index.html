@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block title %}Bosh Sahifa - LazzatRestoran{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<div style="background: linear-gradient(135deg, #1a1a1a 0%, #c0392b 100%); color:white; padding: 90px 0; margin-top:-16px;">
+    <div class="container text-center">
+        <p class="text-warning fw-semibold mb-2">🌟 Toshkentning #1 Restoran</p>
+        <h1 class="display-3 fw-bold mb-3">Haqiqiy O'zbek Taomlari</h1>
+        <p class="lead mb-4" style="color:rgba(255,255,255,0.85);">An'anaviy retseptlar, yangi ingredientlar va sevgi bilan tayyorlangan taomlar</p>
+        <a href="{{ url_for('menu_page') }}" class="btn btn-warning btn-lg fw-bold me-3 px-4">🍽️ Menyuni Ko'rish</a>
+        <a href="{{ url_for('order') }}" class="btn btn-outline-light btn-lg px-4">🛵 Buyurtma Berish</a>
+    </div>
+</div>
+
+<!-- Stats -->
+<div class="container my-5">
+    <div class="row g-4 text-center">
+        <div class="col-md-3">
+            <div class="card p-4" style="background: var(--primary); color:white;">
+                <div style="font-size:2.5rem;">🍽️</div>
+                <h3 class="fw-bold mt-2">50+</h3>
+                <p class="mb-0">Taom turi</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-4" style="background: var(--accent); color:white;">
+                <div style="font-size:2.5rem;">😊</div>
+                <h3 class="fw-bold mt-2">15,000+</h3>
+                <p class="mb-0">Mamnun mijoz</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-4" style="background: var(--primary); color:white;">
+                <div style="font-size:2.5rem;">👨‍🍳</div>
+                <h3 class="fw-bold mt-2">12</h3>
+                <p class="mb-0">Oshpazlar</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-4" style="background: var(--accent); color:white;">
+                <div style="font-size:2.5rem;">⭐</div>
+                <h3 class="fw-bold mt-2">4.9 / 5</h3>
+                <p class="mb-0">Reyting</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Popular Dishes -->
+<div class="container mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold" style="color:var(--dark);">🔥 Mashhur Taomlar</h2>
+        <a href="{{ url_for('menu_page') }}" class="btn btn-orange">Barcha Menyu →</a>
+    </div>
+    <div class="row g-4">
+        {% for item in popular %}
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body text-center p-4">
+                    <div style="font-size:4.5rem;">{{ item.emoji }}</div>
+                    <span class="badge-cat mt-2 d-inline-block">{{ item.category }}</span>
+                    <h5 class="fw-bold mt-3">{{ item.name }}</h5>
+                    <p class="text-muted small">{{ item.desc }}</p>
+                    <p class="price-tag">{{ "{:,}".format(item.price) }} so'm</p>
+                    <a href="{{ url_for('order') }}" class="btn btn-primary btn-sm w-100">🛒 Buyurtma</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- How it works -->
+<div style="background:white; padding:60px 0;">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Qanday Ishlaydi?</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div style="font-size:3.5rem;">📱</div>
+                <h5 class="fw-bold mt-3">1. Buyurtma Bering</h5>
+                <p class="text-muted">Menyudan o'zingizga yoqqan taomlarni tanlang va buyurtma bering</p>
+            </div>
+            <div class="col-md-4">
+                <div style="font-size:3.5rem;">👨‍🍳</div>
+                <h5 class="fw-bold mt-3">2. Tayyorlanadi</h5>
+                <p class="text-muted">Tajribali oshpazlarimiz taomingizni yangi ingredientlardan tayyorlaydi</p>
+            </div>
+            <div class="col-md-4">
+                <div style="font-size:3.5rem;">🛵</div>
+                <h5 class="fw-bold mt-3">3. Yetkazib Beriladi</h5>
+                <p class="text-muted">30-45 daqiqa ichida issiq holda eshigingizga yetkazamiz</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="container my-5 text-center">
+    <div class="card p-5" style="background: linear-gradient(135deg, #c0392b, #e67e22); color:white;">
+        <h2 class="fw-bold mb-3">Bugun Buyurtma Bering!</h2>
+        <p class="lead mb-4">Birinchi buyurtmangizga 10% chegirma! Promo kod: <strong>LAZZAT10</strong></p>
+        <a href="{{ url_for('order') }}" class="btn btn-light btn-lg fw-bold px-5">🍽️ Hozir Buyurtma Berish</a>
+    </div>
+</div>
+{% endblock %}

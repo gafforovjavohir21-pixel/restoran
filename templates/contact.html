@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Aloqa - LazzatRestoran{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="row g-5">
+        <div class="col-md-5">
+            <h2 class="fw-bold mb-4">📬 Biz Bilan Bog'laning</h2>
+            <div class="card p-4 mb-3">
+                <div class="d-flex align-items-center">
+                    <span style="font-size:2rem;width:50px;">📍</span>
+                    <div><strong>Manzil</strong><p class="mb-0 text-muted">Toshkent, Yunusobod tumani, 7-mavze, 15-uy</p></div>
+                </div>
+            </div>
+            <div class="card p-4 mb-3">
+                <div class="d-flex align-items-center">
+                    <span style="font-size:2rem;width:50px;">📞</span>
+                    <div><strong>Telefon</strong><p class="mb-0 text-muted">+998 71 123-45-67<br>+998 90 987-65-43</p></div>
+                </div>
+            </div>
+            <div class="card p-4 mb-3">
+                <div class="d-flex align-items-center">
+                    <span style="font-size:2rem;width:50px;">🕐</span>
+                    <div><strong>Ish Vaqti</strong><p class="mb-0 text-muted">Har kuni: 09:00 – 23:00</p></div>
+                </div>
+            </div>
+            <div class="card p-4">
+                <div class="d-flex align-items-center">
+                    <span style="font-size:2rem;width:50px;">📱</span>
+                    <div><strong>Telegram</strong><p class="mb-0 text-muted">@lazzatrestoran</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card p-5">
+                <h4 class="fw-bold mb-4" style="color:var(--primary);">Xabar Yuborish</h4>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Ismingiz</label>
+                        <input type="text" name="name" class="form-control form-control-lg" placeholder="Ism Familiya" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Telefon</label>
+                        <input type="tel" name="phone" class="form-control form-control-lg" placeholder="+998 90 123-45-67" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Mavzu</label>
+                        <select name="subject" class="form-select form-select-lg">
+                            <option>Buyurtma haqida savol</option>
+                            <option>Taom sifati</option>
+                            <option>Yetkazib berish</option>
+                            <option>Boshqa</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Xabar</label>
+                        <textarea name="message" class="form-control" rows="4" placeholder="Xabaringizni yozing..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">📤 Yuborish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

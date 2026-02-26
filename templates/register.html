@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Ro'yxat - LazzatRestoran{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card p-5">
+                <div class="text-center mb-4">
+                    <div style="font-size:3.5rem;">🍕</div>
+                    <h3 class="fw-bold mt-2">Ro'yxatdan O'tish</h3>
+                    <p class="text-muted">Yangi hisob yarating va chegirmalardan foydalaning</p>
+                </div>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">To'liq ismingiz</label>
+                        <input type="text" name="fullname" class="form-control form-control-lg" placeholder="Ism Familiya" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Foydalanuvchi nomi</label>
+                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Parol</label>
+                        <input type="password" name="password" class="form-control form-control-lg" placeholder="••••••••" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Parolni tasdiqlang</label>
+                        <input type="password" name="confirm" class="form-control form-control-lg" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">✅ Ro'yxatdan O'tish</button>
+                </form>
+                <hr class="my-4">
+                <p class="text-center text-muted mb-0">
+                    Hisobingiz bormi?
+                    <a href="{{ url_for('login') }}" style="color:var(--primary);font-weight:600;">Kiring</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
